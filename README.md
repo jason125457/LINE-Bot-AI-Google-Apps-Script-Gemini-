@@ -17,7 +17,7 @@ Runtime: Google Apps Script (GAS)
 
 Messaging API: LINE Messaging API
 
-AI Model: Google Gemini API (gemini-1.5-flash 或 gemini-2.5-flash)
+AI Model: Google Gemini API ( gemini-2.5-flash)
 
 Database: Google Sheets
 
