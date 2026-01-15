@@ -5,7 +5,7 @@
 
 自然語言記帳：不需要輸入特定指令，支援自然語句分析。
 
-AI 語意解析：使用 Google Gemini 模型 (1.5 Flash / 2.5 Flash) 自動分類消費類別。
+AI 語意解析：使用 Google Gemini 模型  (2.5 Flash)自動分類消費類別。
 
 防重複寫入機制 (Idempotency)：利用 CacheService 實作冪等性檢查，解決 LINE Webhook 重試機制導致的重複記帳問題。
 
