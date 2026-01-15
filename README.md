@@ -1,4 +1,4 @@
-# LINE-Bot-AI-Google-Apps-Script-Gemini-
+# LINE-Bot-AI-Google-Apps-Script-Gemini
 這是一個基於 Google Apps Script (GAS) 的 Serverless 記帳機器人。使用者只需透過 LINE 傳送文字（例如：「午餐吃排骨飯 120元」），系統即會呼叫 Google Gemini AI 進行語意分析，自動提取「項目、金額、類別」，並將資料寫入 Google Sheets。
 
 🚀 核心功能
