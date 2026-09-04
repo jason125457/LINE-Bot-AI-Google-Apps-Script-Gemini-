@@ -55,24 +55,24 @@
 ## 🏛️ 系統架構
 
 ```mermaid
-graph LR
-    User([👤 使用者]) -->|1. 自然語言文字| LineBot[💬 LINE Official Account]
-    LineBot -->|2. Webhook POST| GAS[⚙️ Google Apps Script\n(doPost)]
+flowchart LR
+    User["👤 使用者"] -->|"1. 自然語言文字"| LineBot["💬 LINE 官方帳號"]
+    LineBot -->|"2. Webhook POST"| GAS["⚙️ Google Apps Script<br/>(doPost)"]
     
-    subgraph "Google Apps Script 處理流程"
-      GAS -->|3. 冪等檢查| Cache[(⚡ CacheService)]
-      GAS -->|4. 語意解析| Gemini[🧠 Gemini 備援鏈\n2.5 / 3.1 Flash Lite]
-      Gemini -->|5. 結構化 JSON| GAS
+    subgraph SubGAS ["Google Apps Script 處理流程"]
+      GAS -->|"3. 冪等檢查"| Cache[("⚡ CacheService")]
+      GAS -->|"4. 語意解析"| Gemini["🧠 Gemini 備援鏈<br/>2.5 / 3.1 Flash Lite"]
+      Gemini -->|"5. 結構化 JSON"| GAS
     end
 
-    GAS -->|6. 自動記錄| Sheet[(📊 Google Sheets\n記帳明細 / 月度彙總)]
-    GAS -->|7. Reply API| LineBot
-    LineBot -->|8. 回傳記帳明細結果| User
+    GAS -->|"6. 自動寫入"| Sheet[("📊 Google Sheets<br/>記帳明細 / 月度彙總")]
+    GAS -->|"7. Reply API"| LineBot
+    LineBot -->|"8. 回傳記帳結果"| User
 
-    subgraph "網頁儀表板整合 (可選)"
-      Web[💻 財務儀表板 Web App] -->|HTTP GET ?token=xxx| GAS_GET[⚙️ GAS doGet]
-      GAS_GET -->|讀取匯總與明細| Sheet
-      GAS_GET -->|JSON 資料回傳| Web
+    subgraph SubWeb ["網頁儀表板整合 (可選)"]
+      Web["💻 財務儀表板 Web App"] -->|"HTTP GET ?token=xxx"| GAS_GET["⚙️ GAS doGet"]
+      GAS_GET -->|"讀取匯總與明細"| Sheet
+      GAS_GET -->|"JSON 回傳"| Web
     end
 ```
 
